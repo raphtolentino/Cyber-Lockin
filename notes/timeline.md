@@ -54,5 +54,3 @@ Wireshark Filtering Only ICMP traffic.
 
 - Took screenshots and labelled them into this diary.
 
-
-Hi
