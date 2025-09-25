@@ -12,8 +12,7 @@ Daily Goals:
 #### 1: Setup Github Repo
 
 I created a github repo for this project:
-
-![[github_setup.png]]
+<img width="822" height="388" alt="image" src="https://github.com/user-attachments/assets/037e8836-67c6-4d8c-9a30-ae0b710444aa" />
 
 This project file structure will be as following.
 	Notes:
@@ -32,7 +31,8 @@ This project file structure will be as following.
 For step 2; I Downloaded VirtualBox Exe file, Executed the EXE and Installed on my local SSD drive.
 Website link: https://www.virtualbox.org/wiki/Downloads
 
-![[Pasted image 20250925113328.png]]
+<img width="936" height="283" alt="image" src="https://github.com/user-attachments/assets/3d699541-2f70-4d29-9456-c32e61b3cf70" />
+
 
 ---
 #### 3. Download & Install VM's (Kali Linux, Ubuntu Server, Windows 10).
@@ -58,7 +58,8 @@ Network Configurations:
 --- 
 #### 4. Download Windows Server 2025 + Ubuntu Linux iso for later projects.
 
-![[Pasted image 20250925195742.png]]
+<img width="734" height="396" alt="image" src="https://github.com/user-attachments/assets/a67b258d-a4e6-4932-aaec-a9bd6df6f212" />
+
 
 ---
 
@@ -99,13 +100,16 @@ Win10: 10.0.0.4
 
 Screenshots
 1. Kali Linux
-![[Pasted image 20250925115025.png]]
+<img width="915" height="296" alt="image" src="https://github.com/user-attachments/assets/4db5e8bc-e51a-4c45-8224-395e6b49bde3" />
+
 
 2. Ubuntu Server
-![[Pasted image 20250925115259.png]]
+<img width="922" height="364" alt="image" src="https://github.com/user-attachments/assets/be680e20-152f-48ba-96bd-cea8a1ff5779" />
+
 
 3. Windows 10 
-![[Pasted image 20250925202206.png]]
+<img width="927" height="486" alt="image" src="https://github.com/user-attachments/assets/d7b3b4fa-0d87-4c93-bde7-0c50f4f0d7e2" />
+
 --- 
 #### 2. Create a folder & text file on Ubuntu Server and edit using commands.
 
