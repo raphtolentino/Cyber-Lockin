@@ -1,144 +1,283 @@
 
-## Week 1 : Day 1
+### Week 1: Fundamentals
 
 Daily Goals:
-- [x] Setup Github Repo
-- [x] Download and Install Github Desktop
-- [x] Download VirtualBox and Install it
-- [x] Download VM's iso (Kali Linux, Ubuntu Server, Windows 10) and install it
-- [x] Download Windows Server 2025 + Ubuntu iso for later projects.
+1. [x] Setup Github Repo
+2. [x] Download & Install VirtualBox
+3. [x] Download & Install VM's (Kali Linux, Ubuntu Server, Windows 10).
+4. [x] Download Windows Server 2025 + Ubuntu Linux iso for later projects.
+5. [x]  Write findings and document every major change.
 
-### Project Setup:
 
-- Setup the GitHub repo for this project.
+#### 1: Setup Github Repo
+
+I created a github repo for this project:
+
 ![[github_setup.png]]
 
-This project file structure is as following:
-	1. Notes:
-		1. Weekly notes
-		2. Weekly Notes Screenshots
-	2. Config_files
-		1. vm_files
-	3. Other
-	4.  License (MIT)
-	5. README.md
-	
-- Dowloaded GitHub Desktop and installed on my local Desktop
-
-Website link: https://desktop.github.com/download/
-
-![[Pasted image 20250925111949.png]]
-- Cloned the repository 
-
-![[Pasted image 20250925112042.png]]
-
-- Downloaded VirtualBox Exe file, Executed the EXE and Installed on my local SSD drive.
-
+This project file structure will be as following.
+	Notes:
+		weekly_notes
+		screenshots
+		readme.md
+	config_files
+		vm_files
+		readme.md
+	Other
+	License
+	README.md
+		
+--- 
+#### 2 : Download & Install VirtualBox
+For step 2; I Downloaded VirtualBox Exe file, Executed the EXE and Installed on my local SSD drive.
 Website link: https://www.virtualbox.org/wiki/Downloads
 
 ![[Pasted image 20250925113328.png]]
-- Downloaded Operating Systems ISO's
 
-kali_linux: https://www.kali.org/get-kali/#kali-virtual-machines
-ubuntu:   https://ubuntu.com/download/server
-windows 10: https://www.microsoft.com/en-gb/software-download/windows10
-windows server; https://info.microsoft.com/ww-landing-evaluate-windows-server-2025.html?lcid=en-us&culture=en-us&country=us
+---
+#### 3. Download & Install VM's (Kali Linux, Ubuntu Server, Windows 10).
+With VirtualBox running on my local desktop. I installed - Downloaded Operating Systems ISO's  on these websites.
 
-- Created a Virtual Machine for each OS. With a selective configuration settings:
-Kali/Windows 10/ Ubuntu Server Configuration:
-	Virtual Machine Settings:
-		 2 CPU Cores
-		 2040MB RAM
-		 50GB HDD Storage
-		 Audio Enabled
-	 Network Details:
-		Adapter Name : NAT Network
-			IP range: 192.168.0.0/24
-		Adapter Name: Host-Only Network
-			IP address: 192.168.137.1
+1. kali_linux: https://www.kali.org/get-kali/#kali-virtual-machines
+2. ubuntu:   https://ubuntu.com/download/server
+3. windows 10: https://www.microsoft.com/en-gb/software-download/windows10
+4. windows server; https://info.microsoft.com/ww-landing-evaluate-windows-server-2025.html?lcid=en-us&culture=en-us&country=us
+5. https://ubuntu.com/download/desktop
 
+VM's Hardware Configurations && Network Details
 
-## Week 1: Day 2
+Hardware Configurations:
+	CPU: 2 Cores
+	RAM: 2GB
+	HDD: 50GB
 
-Daily Goals:
-- [ ] Check VM's Ip addresses
-- [ ] Ping all 3 VM's with each other
-- [ ] SSH from Kali/Windows 10 into Ubuntu Server
-- [ ] Create a file on Ubuntu Server and edit using NANO
+Network Configurations:
+	Adapter 1 Name : NAT Network
+	Adapter  2 Name: Host-Only Network
 
-### Check VM's Ip addresses
+--- 
+#### 4. Download Windows Server 2025 + Ubuntu Linux iso for later projects.
 
-How to check IP addresses within the OS terminal.
+![[Pasted image 20250925195742.png]]
+
+---
+
+#### 5. Write findings and document every major change.
+
+DONE
+
+---
+
+### Week 1: Day 2
+
+1. [x]  Check VM's Ip addresses (Kali Linux, Ubuntu Server, Windows 10)
+2. [x]   Create a folder & textfile on Ubuntu Server and edit using commands.
+3. [x]  Ping all 3 VM's with each other
+4. [x] SSH from Kali/Windows 10 into Ubuntu Server + Access created txt file
+
+--- 
+#### 1. Check VM's Ip addresses (Kali Linux, Ubuntu Server, Windows 10)
+
+Commands:
 
 Linux:
-```
+``` shell
 ip a
 ```
 Windows:
-```
+``` bash
 ipconfig
 ```
 
-Kali: 
+Virtual Machine Internet Protocol Addresses:
+``` markdown
+IP's
+KALI: 10.0.0.3
+Ubuntu: 10.0.0.5
+Win10: 10.0.0.4
+```
+
+Screenshots
+1. Kali Linux
 ![[Pasted image 20250925115025.png]]
-Ubuntu Server:
+
+2. Ubuntu Server
 ![[Pasted image 20250925115259.png]]
-Windows 10:
 
- ### Ping all 3 VM's with each other
+3. Windows 10 
+![[Pasted image 20250925202206.png]]
+--- 
+#### 2. Create a folder & text file on Ubuntu Server and edit using commands.
 
-Kali to Ubuntu:
-```
-ping 10.0.0.5 -c 4
-```
-![[Pasted image 20250925115419.png]]
-
-Kali to Windows 10
-```
-ping 10.0.0.4 -c 4
-```
-
-![[Pasted image 20250925121242.png]]
-
-Ubuntu to Kali
-
-```
-ping 10.0.0.5 -c 4
+Commands used
+``` sh
+# this creates a folder and change directory into the folder.
+mkdir txt_files && cd txt_files 
+# this creates a empty txt file called txt1
+touch txt1.txt
+# this opens the nano text editor.
+nano txt1.txt
+# this reads the text file
+cat txt1.txt
 ```
 
-![[Pasted image 20250925115708.png]]
-Ubuntu to Windows 10
+--- 
+
+#### 3.  Ping all 3 VM's with each other
+
+1. Kali -> Ubuntu Server/Windows 10
+Kali to Ubuntu Server
+```sh
+┌──(kali㉿kali)-[~]
+└─$ ping 10.0.0.5 -c 4
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: icmp_seq=1 ttl=64 time=2.46 ms
+64 bytes from 10.0.0.5: icmp_seq=2 ttl=64 time=1.58 ms
+64 bytes from 10.0.0.5: icmp_seq=3 ttl=64 time=1.06 ms
+64 bytes from 10.0.0.5: icmp_seq=4 ttl=64 time=1.54 ms
+
+--- 10.0.0.5 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3070ms
+rtt min/avg/max/mdev = 1.058/1.659/2.460/0.505 ms
 
 ```
-ping 10.0.0.4 -c 4
+
+Kali to Windows 10:
+
+```sh
+┌──(kali㉿kali)-[~]
+└─$ ping 10.0.0.4 -c 4
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.0.0.4: icmp_seq=1 ttl=128 time=3.69 ms
+64 bytes from 10.0.0.4: icmp_seq=2 ttl=128 time=1.87 ms
+64 bytes from 10.0.0.4: icmp_seq=3 ttl=128 time=6.20 ms
+64 bytes from 10.0.0.4: icmp_seq=4 ttl=128 time=1.37 ms
+
+--- 10.0.0.4 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3034ms
+rtt min/avg/max/mdev = 1.366/3.283/6.200/1.893 ms
+
+
 ```
 
-![[Pasted image 20250925121358.png]]
+2. Ubuntu Server -> Kali Linux/Windows 10 
 
-Windows to Kali
+Ubuntu -> Kali
+
+```sh
+root user@root server : ping 10.0.0.5 -c 4
+PING 10.0.0.5 (10.0.0.5) 56(84) bytes of data.
+64 bytes from 10.0.0.5: ttI=64 time-0.051 ms
+64 bytes from 10.0.0.5: tt 1=64 time-0.084 ms
+64 bytes from 10.0.0.5: icmp_seq=3 tt 1=64 time=0.048 ms
+64 bytes from 10.0.0.5: icmp_seq=4 tt 1=64 time=0.047 ms
+
+--- 10.0.0.5 ping statistics ---
+4 packets transmitted, 4 received, packet loss, time 3101ms
+rtt min/avg/max/mdev = 0.047/0.057/0.084/0.015 ms
 
 ```
-ping 10.0.0.3 -c 4
+
+Ubuntu -> Windows 10:
+
+```shell
+ping 10.0.Ø.4 -c 4
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.Ø.Ø.4: icmp_seq=l ttl=128 time=2.48 ms
+64 bytes from 10.Ø.Ø.4: icmp_seq=2 ttl=128 time-I.85 ms
+64 bytes from 10.Ø.Ø.4: icmp_seq=3 ttl=128 time-I .03 ms
+64 bytes from 10.0.Ø.4: icmp_seq=4 ttl=128 time-I .02 ms
+--- 10.0.Ø.4 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss,time 3005ms
+rtt min/avg/max/mdev = 1.024/1.611/2.478/0.536 ms
 ```
 
-![[Pasted image 20250925121646.png]]
+3. Windows 10
+Windows 10 -> Kali
 
-Windows to Ubuntu 
+```bash 
+C:\Users\rootuser>ping 10.0.0.3
+Pinging 10.0.0.3 with 32 bytes of data:                                                 Reply from 10.0.0.3: bytes=32 time=1ms TTL=64                                           Reply from 10.0.0.3: bytes=32 time=3ms TTL=64                                           Reply from 10.0.0.3: bytes=32 time=2ms TTL=64                                           Reply from 10.0.0.3: bytes=32 time=1ms TTL=64                                                                                                                                   Ping statistics for 10.0.0.3:                                                           Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),                                    Approximate round trip times in milli-seconds:                                          Minimum = 1ms, Maximum = 3ms, Average = 1ms   
+```
+
+Windows 10 -> Ubuntu Server
+```bash 
+C:\Users\rootuser>ping 10.0.0.5 
+Pinging 10.0.0.5 with 32 bytes of data:
+Reply from 10.0.0.5: bytes=32 time=2ms TTL=64
+Reply from 10.0.0.5: bytes=32 time=2ms TTL=64
+Reply from 10.0.0.5: bytes=32 time=1ms TTL=64
+Reply from 10.0.0.5: bytes=32 time=2ms TTL=64
+  
+Ping statistics for 10.0.0.5:
+Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 1ms, Maximum = 2ms, Average = 1ms 
+```
+
+---
+#### 4. SSH from Kali/Windows 10 into Ubuntu Server + Access created txt file
+
+Kali -> Ubuntu Server
+
+``` sh
+┌──(kali㉿kali)-[~]
+└─$ ssh rootuser@10.0.0.5
+rootuser@10.0.0.5's password: 
+Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-84-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Thu 25 Sep 19:16:46 UTC 2025
+
+  System load:  0.23               Processes:               132
+  Usage of /:   61.3% of 11.21GB   Users logged in:         1
+  Memory usage: 26%                IPv4 address for enp0s3: 10.0.0.5
+  Swap usage:   0%
 
 
+Expanded Security Maintenance for Applications is not enabled.
 
-SSH from Kali/Windows 10 into Ubuntu Server
+2 updates can be applied immediately.
+1 of these updates is a standard security update.
+To see these additional updates run: apt list --upgradable
 
-
-
-
-
-
-
-
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
 
 
+Last login: Thu Sep 25 19:16:28 2025 from 10.0.0.3
+rootuser@rootserver:~$ cd txt_files/
+rootuser@rootserver:~/txt_files$ ls
+text1.txt  txt_files
+rootuser@rootserver:~/txt_files$ cat text1.txt 
+this is a edit file
 
+rootuser@rootserver:~/txt_files$ exit
+```
 
+Windows 10
+```bash 
+Microsoft Windows [Version 10.0.19045.3803]
+(c) Microsoft Corporation. All rights reserved. 
+C:\Users\rootuser>ssh rootuser@10.0.0.5
+The authenticity of host '10.0.0.5 (10.0.0.5)' can't be established. 
+ECDSA key fingerprint is SHA256:EZfQnR3P5BHLrTPbWpXbCAgjz9coseqFudxkE00MdZk.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.0.0.5' (ECDSA) to the list of known hosts. rootuser@10.0.0.5's password:                                                           Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.8.0-84-generic x86_64)
+* Documentation:  https://help.ubuntu.com
+* Management:     https://landscape.canonical.com
+* Support:        https://ubuntu.com/pro                                                System information as of Thu 25 Sep 19:33:49 UTC 2025                                   System load:  0.42               Processes:               129 
+Usage of /:   61.4% of 11.21GB   Users logged in:         1                             Memory usage: 24%                IPv4 address for enp0s3: 10.0.0.5                      Swap usage:   0%                                                                        
 
+Expanded Security Maintenance for Applications is not enabled.                          2 updates can be applied immediately.
+1 of these updates is a standard security update.                                       To see these additional updates run: apt list --upgradable                              
 
+Enable ESM Apps to receive additional future security updates.                          See https://ubuntu.com/esm or run: sudo pro status                                      
+
+Last login: Thu Sep 25 19:16:46 2025 from 10.0.0.3                                                                                                          rootuser@rootserver:~$ cd txt_files/
+rootuser@rootserver:~/txt_files$ ls                                                     text1.txt  txt_files  
+rootuser@rootserver:~/txt_files$ cat text1.txt                                          this is a edit file                                                                     rootuser@rootserver:~/txt_files$ 
+```
